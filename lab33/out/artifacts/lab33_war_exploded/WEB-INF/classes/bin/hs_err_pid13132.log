@@ -1,0 +1,218 @@
+#
+# There is insufficient memory for the Java Runtime Environment to continue.
+# Native memory allocation (mmap) failed to map 268435456 bytes for G1 virtual space
+# Possible reasons:
+#   The system is out of physical RAM or swap space
+#   The process is running with CompressedOops enabled, and the Java Heap may be blocking the growth of the native heap
+# Possible solutions:
+#   Reduce memory load on the system
+#   Increase physical memory or swap space
+#   Check if swap backing store is full
+#   Decrease Java heap size (-Xmx/-Xms)
+#   Decrease number of Java threads
+#   Decrease Java thread stack sizes (-Xss)
+#   Set larger code cache with -XX:ReservedCodeCacheSize=
+#   JVM is running with Zero Based Compressed Oops mode in which the Java heap is
+#     placed in the first 32GB address space. The Java Heap base address is the
+#     maximum limit for the native heap growth. Please use -XX:HeapBaseMinAddress
+#     to set the Java Heap base and to place the Java Heap above 32GB virtual address.
+# This output file may be truncated or incomplete.
+#
+#  Out of Memory Error (./open/src/hotspot/os/windows/os_windows.cpp:3472), pid=13132, tid=5452
+#
+# JRE version:  (15.0.1+9) (build )
+# Java VM: Java HotSpot(TM) 64-Bit Server VM (15.0.1+9-18, mixed mode, sharing, tiered, compressed oops, g1 gc, windows-amd64)
+# No core dump will be written. Minidumps are not enabled by default on client versions of Windows
+#
+
+---------------  S U M M A R Y ------------
+
+Command Line: --add-opens=java.base/java.lang=ALL-UNNAMED --add-opens=java.base/java.io=ALL-UNNAMED --add-opens=java.rmi/sun.rmi.transport=ALL-UNNAMED -Djava.util.logging.config.file=C:\Users\deom\AppData\Local\JetBrains\IntelliJIdea2020.1\tomcat\Unnamed_lab33_4\conf\logging.properties -Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager -Djdk.tls.ephemeralDHKeySize=2048 -Djava.protocol.handler.pkgs=org.apache.catalina.webresources -Dignore.endorsed.dirs= -Dcatalina.base=C:\Users\deom\AppData\Local\JetBrains\IntelliJIdea2020.1\tomcat\Unnamed_lab33_4 -Dcatalina.home=D:\trash\apache-tomcat-9.0.41 -Djava.io.tmpdir=D:\trash\apache-tomcat-9.0.41\temp org.apache.catalina.startup.Bootstrap stop
+
+Host: Intel(R) Xeon(R) CPU E5-2689 0 @ 2.60GHz, 8 cores, 15G,  Windows 10 , 64 bit Build 19041 (10.0.19041.546)
+Time: Mon Dec 28 01:14:02 2020 RTZ 2 (зима) elapsed time: 0.009813 seconds (0d 0h 0m 0s)
+
+---------------  T H R E A D  ---------------
+
+Current thread (0x000001986b977b10):  JavaThread "Unknown thread" [_thread_in_vm, id=5452, stack(0x0000003fb9500000,0x0000003fb9600000)]
+
+Stack: [0x0000003fb9500000,0x0000003fb9600000]
+Native frames: (J=compiled Java code, j=interpreted, Vv=VM code, C=native code)
+V  [jvm.dll+0x62ae9a]
+V  [jvm.dll+0x781389]
+V  [jvm.dll+0x782ae3]
+V  [jvm.dll+0x783143]
+V  [jvm.dll+0x216265]
+V  [jvm.dll+0x6281d9]
+V  [jvm.dll+0x61cd15]
+V  [jvm.dll+0x2d01fd]
+V  [jvm.dll+0x2d0062]
+V  [jvm.dll+0x2d603c]
+V  [jvm.dll+0x325b2a]
+V  [jvm.dll+0x3251f4]
+V  [jvm.dll+0x2a717a]
+V  [jvm.dll+0x2a8318]
+V  [jvm.dll+0x75e101]
+V  [jvm.dll+0x3343e4]
+V  [jvm.dll+0x73e826]
+V  [jvm.dll+0x3b7777]
+V  [jvm.dll+0x3b9201]
+C  [jli.dll+0x52fb]
+C  [ucrtbase.dll+0x214c2]
+C  [KERNEL32.DLL+0x17034]
+C  [ntdll.dll+0x4cec1]
+
+
+---------------  P R O C E S S  ---------------
+
+Threads class SMR info:
+_java_thread_list=0x00007fff83ed4ff0, length=0, elements={
+}
+
+Java Threads: ( => current thread )
+
+Other Threads:
+  0x000001986b9c7d50 GCTaskThread "GC Thread#0" [stack: 0x0000003fb9600000,0x0000003fb9700000] [id=6804]
+  0x000001986b9d8cb0 ConcurrentGCThread "G1 Main Marker" [stack: 0x0000003fb9700000,0x0000003fb9800000] [id=18368]
+  0x000001986b9d9f50 ConcurrentGCThread "G1 Conc#0" [stack: 0x0000003fb9800000,0x0000003fb9900000] [id=16216]
+
+[error occurred during error reporting (printing all threads), id 0xc0000005, EXCEPTION_ACCESS_VIOLATION (0xc0000005) at pc=0x00007fff836c8047]
+
+VM state: not at safepoint (not fully initialized)
+
+VM Mutex/Monitor currently owned by a thread:  ([mutex/lock_event])
+[0x000001986b972d00] Heap_lock - owner thread: 0x000001986b977b10
+
+Heap address: 0x0000000701000000, size: 4080 MB, Compressed Oops mode: Zero based, Oop shift amount: 3
+CDS archive(s) mapped at: [0x0000000000000000-0x0000000000000000-0x0000000000000000), size 0, SharedBaseAddress: 0x0000000800000000, ArchiveRelocationMode: 0.
+Narrow klass base: 0x0000000000000000, Narrow klass shift: 0, Narrow klass range: 0x0
+
+Heap:
+ garbage-first heap   total 262144K, used 0K [0x0000000701000000, 0x0000000800000000)
+  region size 2048K, 0 young (0K), 0 survivors (0K)
+ Metaspace       used 0K, capacity 0K, committed 0K, reserved 0K
+  class space    used 0K, capacity 0K, committed 0K, reserved 0K
+
+Heap Regions: E=young(eden), S=young(survivor), O=old, HS=humongous(starts), HC=humongous(continues), CS=collection set, F=free, OA=open archive, CA=closed archive, TAMS=top-at-mark-start (previous, next)
+
+Card table byte_map: [0x00000198746e0000,0x0000019874ee0000] _byte_map_base: 0x0000019870ed8000
+
+Marking Bits (Prev, Next): (CMBitMap*) 0x000001986b9c8450, (CMBitMap*) 0x000001986b9c8490
+ Prev Bits: [0x00000198756e0000, 0x00000198796a0000)
+ Next Bits: [0x00000198796a0000, 0x000001987d660000)
+
+GC Heap History (0 events):
+No events
+
+Deoptimization events (0 events):
+No events
+
+Classes unloaded (0 events):
+No events
+
+Classes redefined (0 events):
+No events
+
+Internal exceptions (0 events):
+No events
+
+Events (1 events):
+Event: 0.006 Loaded shared library C:\Program Files\Java\jdk-15.0.1\bin\java.dll
+
+
+Dynamic libraries:
+0x00007ff6a7550000 - 0x00007ff6a755f000 	C:\Program Files\Java\jdk-15.0.1\bin\java.exe
+0x00007ff807a70000 - 0x00007ff807c66000 	C:\Windows\SYSTEM32\ntdll.dll
+0x00007ff807150000 - 0x00007ff80720d000 	C:\Windows\System32\KERNEL32.DLL
+0x00007ff8056b0000 - 0x00007ff805978000 	C:\Windows\System32\KERNELBASE.dll
+0x00007ff805260000 - 0x00007ff805360000 	C:\Windows\System32\ucrtbase.dll
+0x00007fffead20000 - 0x00007fffead39000 	C:\Program Files\Java\jdk-15.0.1\bin\VCRUNTIME140.dll
+0x00007fffea3c0000 - 0x00007fffea3d8000 	C:\Program Files\Java\jdk-15.0.1\bin\jli.dll
+0x00007ff807210000 - 0x00007ff8072ba000 	C:\Windows\System32\ADVAPI32.dll
+0x00007ff806ff0000 - 0x00007ff80708e000 	C:\Windows\System32\msvcrt.dll
+0x00007ff805bb0000 - 0x00007ff805c4b000 	C:\Windows\System32\sechost.dll
+0x00007ff8074c0000 - 0x00007ff8075e4000 	C:\Windows\System32\RPCRT4.dll
+0x00007ff805d90000 - 0x00007ff805f30000 	C:\Windows\System32\USER32.dll
+0x00007ff805650000 - 0x00007ff805672000 	C:\Windows\System32\win32u.dll
+0x00007ffff9320000 - 0x00007ffff95bb000 	C:\Windows\WinSxS\amd64_microsoft.windows.common-controls_6595b64144ccf1df_6.0.19041.488_none_ca04af081b815d21\COMCTL32.dll
+0x00007ff805d60000 - 0x00007ff805d8a000 	C:\Windows\System32\GDI32.dll
+0x00007ff805980000 - 0x00007ff805a89000 	C:\Windows\System32\gdi32full.dll
+0x00007ff8051c0000 - 0x00007ff80525d000 	C:\Windows\System32\msvcp_win.dll
+0x00007fffff4f0000 - 0x00007fffff4fa000 	C:\Windows\SYSTEM32\VERSION.dll
+0x00007ff806fb0000 - 0x00007ff806fe0000 	C:\Windows\System32\IMM32.DLL
+0x00007ff800940000 - 0x00007ff80094c000 	C:\Program Files\Java\jdk-15.0.1\bin\vcruntime140_1.dll
+0x00007fff88150000 - 0x00007fff881e1000 	C:\Program Files\Java\jdk-15.0.1\bin\msvcp140.dll
+0x00007fff83410000 - 0x00007fff83f6e000 	C:\Program Files\Java\jdk-15.0.1\bin\server\jvm.dll
+0x00007ff8072c0000 - 0x00007ff8072c8000 	C:\Windows\System32\PSAPI.DLL
+0x00007ffff1b10000 - 0x00007ffff1b19000 	C:\Windows\SYSTEM32\WSOCK32.dll
+0x00007ffffb990000 - 0x00007ffffb9b7000 	C:\Windows\SYSTEM32\WINMM.dll
+0x00007ff807450000 - 0x00007ff8074bb000 	C:\Windows\System32\WS2_32.dll
+0x00007ff803130000 - 0x00007ff803142000 	C:\Windows\SYSTEM32\kernel.appcore.dll
+0x00007ffff1a80000 - 0x00007ffff1a8a000 	C:\Program Files\Java\jdk-15.0.1\bin\jimage.dll
+0x00007ffff76d0000 - 0x00007ffff78b4000 	C:\Windows\SYSTEM32\DBGHELP.DLL
+0x00007ffff70c0000 - 0x00007ffff70ec000 	C:\Windows\SYSTEM32\dbgcore.DLL
+0x00007ff805520000 - 0x00007ff80559f000 	C:\Windows\System32\bcryptPrimitives.dll
+0x00007fffe50f0000 - 0x00007fffe5115000 	C:\Program Files\Java\jdk-15.0.1\bin\java.dll
+
+dbghelp: loaded successfully - version: 4.0.5 - missing functions: none
+symbol engine: initialized successfully - sym options: 0x614 - pdb path: .;C:\Program Files\Java\jdk-15.0.1\bin;C:\Windows\SYSTEM32;C:\Windows\WinSxS\amd64_microsoft.windows.common-controls_6595b64144ccf1df_6.0.19041.488_none_ca04af081b815d21;C:\Program Files\Java\jdk-15.0.1\bin\server
+
+VM Arguments:
+jvm_args: --add-opens=java.base/java.lang=ALL-UNNAMED --add-opens=java.base/java.io=ALL-UNNAMED --add-opens=java.rmi/sun.rmi.transport=ALL-UNNAMED -Djava.util.logging.config.file=C:\Users\deom\AppData\Local\JetBrains\IntelliJIdea2020.1\tomcat\Unnamed_lab33_4\conf\logging.properties -Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager -Djdk.tls.ephemeralDHKeySize=2048 -Djava.protocol.handler.pkgs=org.apache.catalina.webresources -Dignore.endorsed.dirs= -Dcatalina.base=C:\Users\deom\AppData\Local\JetBrains\IntelliJIdea2020.1\tomcat\Unnamed_lab33_4 -Dcatalina.home=D:\trash\apache-tomcat-9.0.41 -Djava.io.tmpdir=D:\trash\apache-tomcat-9.0.41\temp 
+java_command: org.apache.catalina.startup.Bootstrap stop
+java_class_path (initial): D:\trash\apache-tomcat-9.0.41\bin\bootstrap.jar;D:\trash\apache-tomcat-9.0.41\bin\tomcat-juli.jar
+Launcher Type: SUN_STANDARD
+
+[Global flags]
+     intx CICompilerCount                          = 4                                         {product} {ergonomic}
+     uint ConcGCThreads                            = 2                                         {product} {ergonomic}
+     uint G1ConcRefinementThreads                  = 8                                         {product} {ergonomic}
+   size_t G1HeapRegionSize                         = 2097152                                   {product} {ergonomic}
+    uintx GCDrainStackTargetSize                   = 64                                        {product} {ergonomic}
+   size_t InitialHeapSize                          = 268435456                                 {product} {ergonomic}
+   size_t MarkStackSize                            = 4194304                                   {product} {ergonomic}
+   size_t MaxHeapSize                              = 4278190080                                {product} {ergonomic}
+   size_t MinHeapDeltaBytes                        = 2097152                                   {product} {ergonomic}
+   size_t MinHeapSize                              = 8388608                                   {product} {ergonomic}
+    uintx NonNMethodCodeHeapSize                   = 5839372                                {pd product} {ergonomic}
+    uintx NonProfiledCodeHeapSize                  = 122909434                              {pd product} {ergonomic}
+    uintx ProfiledCodeHeapSize                     = 122909434                              {pd product} {ergonomic}
+    uintx ReservedCodeCacheSize                    = 251658240                              {pd product} {ergonomic}
+     bool SegmentedCodeCache                       = true                                      {product} {ergonomic}
+   size_t SoftMaxHeapSize                          = 4278190080                             {manageable} {ergonomic}
+     bool UseCompressedClassPointers               = true                                 {lp64_product} {ergonomic}
+     bool UseCompressedOops                        = true                                 {lp64_product} {ergonomic}
+     bool UseG1GC                                  = true                                      {product} {ergonomic}
+     bool UseLargePagesIndividualAllocation        = false                                  {pd product} {ergonomic}
+
+Logging:
+Log output configuration:
+ #0: stdout all=warning uptime,level,tags
+ #1: stderr all=off uptime,level,tags
+
+Environment Variables:
+JAVA_HOME=C:\Program Files\Java\jdk-15.0.1
+CLASSPATH=D:\trash\apache-tomcat-9.0.41\bin\bootstrap.jar;D:\trash\apache-tomcat-9.0.41\bin\tomcat-juli.jar
+PATH=C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\Program Files\Common Files\Oracle\Java\javapath;C:\Program Files\MySQL\MySQL Server 8.0\bin;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files\dotnet\;C:\Program Files\Microsoft SQL Server\130\Tools\Binn\;C:\Program Files\Microsoft SQL Server\Client SDK\ODBC\170\Tools\Binn\;C:\Program Files (x86)\Microsoft SQL Server\150\DTS\Binn\;C:\Program Files\Azure Data Studio\bin;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Users\deom\AppData\Local\Microsoft\WindowsApps;C:\Users\deom\.dotnet\tools;C:\Program Files\Azure Data Studio\bin
+USERNAME=deom
+OS=Windows_NT
+PROCESSOR_IDENTIFIER=Intel64 Family 6 Model 45 Stepping 7, GenuineIntel
+
+
+
+---------------  S Y S T E M  ---------------
+
+OS:
+ Windows 10 , 64 bit Build 19041 (10.0.19041.546)
+OS uptime: 0 days 2:08 hours
+
+CPU: total 8 (initial active 8) (8 cores per cpu, 2 threads per core) family 6 model 45 stepping 7 microcode 0x714, cmov, cx8, fxsr, mmx, sse, sse2, sse3, ssse3, sse4.1, sse4.2, popcnt, vzeroupper, avx, aes, clmul, ht, tsc, tscinvbit, tscinv, clflush
+
+Memory: 4k page, system-wide physical 16315M (9260M free)
+TotalPageFile size 18363M (AvailPageFile size 245M)
+current process WorkingSet (physical memory assigned to process): 10M, peak: 10M
+current process commit charge ("private bytes"): 60M, peak: 316M
+
+vm_info: Java HotSpot(TM) 64-Bit Server VM (15.0.1+9-18) for windows-amd64 JRE (15.0.1+9-18), built on Sep 15 2020 14:43:54 by "mach5one" with unknown MS VC++:1925
+
+END.

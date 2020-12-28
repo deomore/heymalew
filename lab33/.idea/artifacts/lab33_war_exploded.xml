@@ -1,0 +1,24 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" build-on-make="true" name="lab33:war exploded">
+    <output-path>$PROJECT_DIR$/out/artifacts/lab33_war_exploded</output-path>
+    <root id="root">
+      <element id="javaee-facet-resources" facet="lab33/web/Web" />
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="lab33" />
+          <element id="library" level="project" name="apache-tomcat-9.0.1" />
+          <element id="dir-copy" path="$PROJECT_DIR$/../../../../apache-tomcat-9.0.41" />
+        </element>
+        <element id="directory" name="lib">
+          <element id="library" level="project" name="Spring-5.2.3.RELEASE" />
+          <element id="library" level="project" name="Spring MVC-5.2.3.RELEASE" />
+          <element id="library" level="project" name="mysql:mysql-connector-java:8.0.22" />
+          <element id="library" level="project" name="jstl:jstl:1.2" />
+        </element>
+      </element>
+    </root>
+  </artifact>
+</component>
+
+
+
